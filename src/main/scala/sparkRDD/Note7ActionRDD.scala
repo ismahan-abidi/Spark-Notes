@@ -1,7 +1,7 @@
 package tuto0
 
 import org.apache.spark.{SparkConf, SparkContext}
-import tuto0.Note1KeyValuePairs.lines
+//import tuto0.Note1KeyValuePairs.lines
 
 object Note7ActionRDD extends App {
   val conf = new SparkConf().setAppName("test1").setMaster("local[1]")
@@ -12,7 +12,7 @@ object Note7ActionRDD extends App {
   val resultatReduce = rdd1.reduce((s1,s2) => s1+s2)
   println(resultatReduce)
   //l'action collect retourne tout les éléments de rdd sous forme d'un tableau au  program driver , cette action est généralement utile aprés
-  //une transformation de filter ou une autre transformation qui permet de retourner une rdd de taille petit
+  //une transformation de filter ou une autre transformation qui permet de retourner une rdd de taille petite
   println("------------------------- action collect()  ---------------------------------")
   val actionCollect = rdd1.collect
   //println(actionCollect)//pourquoi resultat est [Ljava.lang.String;@6d1dcdff et fonctionne bien avec foreach
@@ -35,7 +35,7 @@ object Note7ActionRDD extends App {
   val take = rddParallelize.take(3)
   take.foreach(println)
   println("------------------------- action takeSample ---------------------------------")
-  //l'action takeSample retourne un tableau avec un échantillon aléatoire des données
+  //l'action takeSample retourne un tableau avec un échantillon aléatoir des données
   val actionTakeSample = rdd1.takeSample(false,2)
   actionTakeSample.foreach(println)
   println("------------------------- action takeOrdered ---------------------------------")
@@ -56,7 +56,7 @@ object Note7ActionRDD extends App {
   //val actionSaveAsSequenceFile = pairs.saveAsSequenceFile("files/sequencefile")
  // println(actionSaveAsSequenceFile)
   println("------------------------- action countByKey()  ---------------------------------")
-  //l'action countByKey() permet de retourner le nombre de valeurs pour chaque clé sous forme d'un hashmap(stocke les données sous forme de clé valeurs(somme))
+  //l'action countByKey() permet de retourner le nombre de valeurs pour chaque clé sous forme d'un hashmap(stocke les données sous forme de clé valeur(somme))
   val rddcountByKey = pairs.countByKey()
   rddcountByKey.foreach(println)
 

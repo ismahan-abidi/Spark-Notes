@@ -10,5 +10,5 @@ object Note5PrintingElementsOfAnRDD extends App {
   //take retourne un tableau d'élement ou chaque élement est une ligne
   //take permet de retourner un nombre bien déterminer de RDD
   //collect permet de retourner une résultat sous forme de tableau aussi tout les éléments de l' RDD
-  rdd.collect().foreach(println)
+ rdd.collect().foreach(println)
 }

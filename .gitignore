@@ -1,2 +1,6 @@
 # Project exclude paths
 /target/
+/metastore_db/
+/files/hive/
+/files/result_sous_users_parquet*/
+/files/save.txt/

@@ -1,5 +1,0 @@
-package sparkRDD
-
-object gghh {
-
-}

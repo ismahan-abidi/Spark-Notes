@@ -19,7 +19,7 @@ object Note8RDDpersistence extends App{
   rdd2.cache()
   //deuxième méthode: persist(storage level) prend en paramètre un objet de type storage level qui détermine en quoi on va persister la RDD
   //LE STORAGE LEVEL PEUT PRENDRE :
-  //1)MEMORY_ONLY ; c'est exactement equivalent à la méthode cach() car il traite toute les partitions de la RDD dans la mémoire
+  //1)MEMORY_ONLY ; c'est exactement equivalent à la méthode cache() car il traite toute les partitions de la RDD dans la mémoire
   //les objets de l'RDD sont décérialisé dans la JVM
   rdd2.persist(StorageLevel.MEMORY_ONLY)
   //2) MEMORY_AND_DISK :dans un premier temps les partitions des rdd seront persistées dans la mémoire et les objets sont déséréalisés
@@ -29,7 +29,7 @@ object Note8RDDpersistence extends App{
   //ca peut nous gagnier de la mémoire mais c'est couteux pour le CPU pendant la lecture car il doit décéréaliser les objets
   rdd2.persist(StorageLevel.MEMORY_ONLY_SER)
   //4)MEMORY_AND_DISK_SER: pareille à memory_only_ser mais si la mémoire ne suffit pas pour certaines partitions alors elles
-  //seront persistées dan le disque.
+  //seront persistées dans le disque.
   rdd2.persist(StorageLevel.MEMORY_AND_DISK_SER)
   //5)DISK_ONLY  : càd persiste toute l'rdd dans le disque seulement
   rdd2.persist(StorageLevel.DISK_ONLY)

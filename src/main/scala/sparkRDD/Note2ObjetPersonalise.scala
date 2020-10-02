@@ -13,7 +13,8 @@ object Note2ObjetPersonalise extends App {
   val x = new Personne("kouki","monem",123)
   val y = new Personne("kouki","ismahan",123)
   if(x.equals(y)){
-  //pour afficher un objet dans un println il faut overriding la méthode toString
+  //pour afficher un objet dans un println ou bien concatiné un objet avec string
+    // il faut overriding la méthode toString
   println(s"les deux objets $x et $y sont égaux")
 }
 else println(s"les deux objets $x et $y  sont différents ")

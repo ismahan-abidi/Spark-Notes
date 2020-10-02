@@ -4,15 +4,15 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object Note1KeyValuePairs extends App {
   //shullfe est un mécanisme qui permet de transférer toutes les données qui ont le meme clé dans un seul worker node
-  val conf = new SparkConf().setAppName("test1").setMaster("local[2]")
+  val conf = new SparkConf().setAppName("test1").setMaster("local[1]")
   val sc = new SparkContext(conf)
-  val lines = sc.textFile("files/f1.txt")
-  lines.foreach(println)
+  val rdd = sc.textFile("files/f1.txt")
+  rdd.foreach(println)
   //pairs est une rdd des pairs clé valeur
-  val pairs = lines.map(s => (s, 1))
-  pairs.foreach(println)
+  val rddpairs = rdd.map(s => (s, 1))
+  rddpairs.foreach(println)
   //counts est une rdd des pairs clé valeur
-  val counts = pairs.reduceByKey((a, b) => a + b)
+  val counts = rddpairs.reduceByKey((a, b) => a + b)//on va appliquer la fonction en paramètre de reduceByKey sur chaque valeure
   counts.foreach(println)
   println("-----------------------------------------------------")
   val valeur =counts.sortByKey(ascending = true)

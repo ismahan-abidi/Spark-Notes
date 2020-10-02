@@ -32,7 +32,7 @@ object Note6TransformationRDD extends App {
   val pairs = rdd1.map(s => (s, 1))
   val rddGroupByKey = pairs.groupByKey()
   rddGroupByKey.foreach(println)
-  //la méthode reduceByKey permet de regrouper les entiers sur la base de la même clé et de faira ses sommes
+  //la méthode reduceByKey permet de regrouper les entiers sur la base de la même clé et de faire ses sommes
   println(" -----------la méthode reduceByKey -------------------")
   val rddReduceByKey = pairs.reduceByKey((a,b)=>a+b)
   rddReduceByKey.foreach(println)
