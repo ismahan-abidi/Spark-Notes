@@ -8,9 +8,8 @@ object Note0 extends App {
   // la méthode getOrCreate() pour récupérer l'objet s'il est déja créer ou bien de le créer
   val spark = SparkSession.builder().appName("Spark SQL basic example").master("local[4]").getOrCreate()
   // For implicit conversions like converting RDDs to DataFrames
-
-  import spark.implicits._
-//CRÉATION D'UNE DATAFRAME avec un fichier json
+  import spark.implicits._  //pour faire une conversion implicite par exemple pour convertir rdd au data set/frame ou bien Seq au dataset/frame et pour que la fonction $ fonctionne
+  //1.CRÉATION D'UNE DATAFRAME avec un fichier json
   val dataFrame = spark.read.json("files/ismahan.json")
   dataFrame.printSchema()
   dataFrame.show()
@@ -23,10 +22,11 @@ object Note0 extends App {
   // Register the DataFrame as a SQL temporary view
   //view c'est une table virtuelle basée sur une requette sql
   //people est un view
-  dataFrame.createOrReplaceTempView("name_view")//cette view n'est pas partagé entre les autres applications et sa durée de vie est liée à l'application
+  dataFrame.createOrReplaceTempView("name_view")//cette view n'est pas partagée entre les autres spark session et sa durée de vie est liée à l'application
+  //dans un meme jvm on peut avoir plusieur spark session mais un seul spark context
   val sqlDF = spark.sql("SELECT * FROM name_view")
   sqlDF.show()
-  //pour créer un vue partagé entre toute les applications il suffit de créer un global temporary view
+  //pour créer une vue partagée entre toutes les objets sparkSession il suffit de créer un global temporary view
   //ce vue existe toujours sous la base de données global_temp
   // Register the DataFrame as a global temporary view
   dataFrame.createGlobalTempView("ismahan_view")

@@ -1,4 +1,4 @@
-package tuto0
+package sparkRDD
 
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -8,7 +8,8 @@ object Note10SharedVariableAccumulator  extends App{
   //la valeur de cette variable dans chaque exécuteur.
   // Chaque exécuteur va retourner au driver le résultat calculer et le driver va faire la somme
   //parmi les cas d'utilisations de l'Accumulator est le calcul d'une somme ou de compter (counter) qlq chose
-  //on peut visualisé les valeurs d'une variable accumulateur dans une interface web
+  //on peut visualiser 00
+  // les valeurs d'une variable accumulateur dans une interface web
   val conf = new SparkConf().setAppName("test1").setMaster("local[2]")
   val sc = new SparkContext(conf)
   val rdd = sc.textFile("files/nom.txt")

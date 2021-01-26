@@ -1,4 +1,4 @@
-package tuto0
+package sparkRDD
 
 import org.apache.spark.{SparkConf, SparkContext}
 

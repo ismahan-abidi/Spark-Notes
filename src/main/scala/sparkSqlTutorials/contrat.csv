@@ -1,0 +1,8 @@
+contract_id;pole_id;appli_emet;montant
+1;1;AE1;7000
+2;1;AE1;6000
+3;3;AE1;5000
+4;2;AE1;4000
+5;2;AE1;3000
+6;3;AE1;2000
+7;3;AE2;1000

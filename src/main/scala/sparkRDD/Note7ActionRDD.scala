@@ -1,7 +1,6 @@
-package tuto0
+package sparkRDD
 
 import org.apache.spark.{SparkConf, SparkContext}
-//import tuto0.Note1KeyValuePairs.lines
 
 object Note7ActionRDD extends App {
   val conf = new SparkConf().setAppName("test1").setMaster("local[1]")
@@ -11,11 +10,12 @@ object Note7ActionRDD extends App {
   val rdd1 = sc.textFile("files/nom.txt")
   val resultatReduce = rdd1.reduce((s1,s2) => s1+s2)
   println(resultatReduce)
-  //l'action collect retourne tout les éléments de rdd sous forme d'un tableau au  program driver , cette action est généralement utile aprés
+  //l'action collect retourne tous les éléments de rdd sous forme d'un tableau au  program driver , cette action est généralement utile aprés
   //une transformation de filter ou une autre transformation qui permet de retourner une rdd de taille petite
   println("------------------------- action collect()  ---------------------------------")
   val actionCollect = rdd1.collect
   //println(actionCollect)//pourquoi resultat est [Ljava.lang.String;@6d1dcdff et fonctionne bien avec foreach
+  //le résultat de collect est tableux des élements c'est pour cela pour l'afficher on ne peut pas utilisé println on utilise foreach
   actionCollect.foreach(println)
   println("------------------------- action count()   ---------------------------------")
   //l'action count retourne le nombre des éléments dans une rdd (cad le nombre de ligne)
@@ -53,8 +53,8 @@ object Note7ActionRDD extends App {
   // dans un chemin donné dans le système de fichiers local,ne fonctionne que pour les rdd paires
   val lines = sc.textFile("files/f1.txt")
   val pairs = lines.map(s => (s, 1))
-  //val actionSaveAsSequenceFile = pairs.saveAsSequenceFile("files/sequencefile")
- // println(actionSaveAsSequenceFile)
+  val actionSaveAsSequenceFile = pairs.saveAsSequenceFile("files/sequencefile")
+  println(actionSaveAsSequenceFile)
   println("------------------------- action countByKey()  ---------------------------------")
   //l'action countByKey() permet de retourner le nombre de valeurs pour chaque clé sous forme d'un hashmap(stocke les données sous forme de clé valeur(somme))
   val rddcountByKey = pairs.countByKey()
