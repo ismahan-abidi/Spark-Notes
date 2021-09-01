@@ -2,7 +2,7 @@ package sparkSqlTutorials
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
-object ExerciceDataFrame extends  App{
+object ExerciceDataFrameLansrod extends  App{
   implicit val sparkss= SparkSession.builder()
     .appName("ExerciceDataFrame")
     .master("local[2]")

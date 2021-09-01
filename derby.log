@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Mon Jan 25 22:23:27 CET 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0177-3b6e-1a1d-00000b52bb00 
-on database directory /home/abidi/IdeaProjects/SparkNotes/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@1dd76982 
+Wed Sep 01 11:45:10 CEST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-017b-a0bf-8244-00000a726c80 
+on database directory /home/abidi/IdeaProjects/SparkNotes/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@3e998033 
 Loaded from file:/home/abidi/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Private Build
-java.runtime.version=1.8.0_275-8u275-b01-0ubuntu1~16.04-b01
+java.runtime.version=1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10
 user.dir=/home/abidi/IdeaProjects/SparkNotes
 os.name=Linux
 os.arch=amd64
-os.version=4.15.0-132-generic
+os.version=4.15.0-142-generic
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
